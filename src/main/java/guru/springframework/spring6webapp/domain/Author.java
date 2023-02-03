@@ -2,6 +2,9 @@ package guru.springframework.spring6webapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "author")
 public class Author {
@@ -12,6 +15,17 @@ public class Author {
 
     private String firstNane;
     private String lastNane;
+
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books = new LinkedHashSet<>();
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 
     public Long getId() {
         return id;
