@@ -2,7 +2,7 @@ package guru.springframework.spring6webapp.domain;
 
 import jakarta.persistence.*;
 
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,11 +14,11 @@ public class Author {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String firstNane;
-    private String lastNane;
+    private String firstName;
+    private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> books = new LinkedHashSet<>();
+    private Set<Book> books = new HashSet<>();
 
     public Set<Book> getBooks() {
         return books;
@@ -36,28 +36,28 @@ public class Author {
         this.id = id;
     }
 
-    public String getFirstNane() {
-        return firstNane;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstNane(String firstNane) {
-        this.firstNane = firstNane;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastNane() {
-        return lastNane;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastNane(String lastNane) {
-        this.lastNane = lastNane;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
         return "Author{" +
                 "id=" + id +
-                ", firstNane='" + firstNane + '\'' +
-                ", lastNane='" + lastNane + '\'' +
+                ", firstNane='" + firstName + '\'' +
+                ", lastNane='" + lastName + '\'' +
                 ", books=" + books +
                 '}';
     }
